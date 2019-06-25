@@ -1,6 +1,6 @@
 const Types = {
     FETCH_LIST: 'FETCH_LIST',
-    ADD_TO_LIST: 'ADD_TO_LIST'
+    SET_LIST: 'SET_LIST'
 };
 
 //action is just an object represent action type and payload
@@ -8,11 +8,11 @@ const fetchList = () => {
     return { type: Types.FETCH_LIST };
 };
 
-const addToList = (data) => {
+const setList = (data) => {
     return { 
-        type: Types.ADD_TO_LIST,
+        type: Types.SET_LIST,
         payload: data
      }
 }
 
-export {Types, fetchList, addToList};
+export {Types, fetchList, setList};

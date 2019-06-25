@@ -11,7 +11,7 @@ class App extends React.Component {
       <Todo
         todoList={this.props.todoList}
       />
-      <a href="javascript:void(0)" onClick={() => this.props.addToList()}>Add</a>
+      <a href="javascript:void(0)" onClick={() => this.props.fetchTodoList()}>Refresh</a>
     </div>
     );
   };

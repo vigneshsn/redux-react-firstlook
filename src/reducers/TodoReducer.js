@@ -7,19 +7,7 @@ const initialState = {
 //pure functions - should not mutate the state.
 export const todoReducer = (state = initialState, action) => {
     switch(action.type) {
-        // case Types.FETCH_LIST: {
-        //     console.log('fetch list called!!!');
-        //     return {
-        //         ...state,
-        //         data: [{
-        //             "userId": 1,
-        //             "id": 1,
-        //             "title": "delectus aut autem",
-        //             "completed": false
-        //         }]
-        //     };
-        // }
-        case Types.ADD_TO_LIST: {
+        case Types.SET_LIST: {
            return {
                ...state,
                data: action.payload

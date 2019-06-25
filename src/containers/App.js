@@ -1,5 +1,5 @@
 
-import { fetchList, addToList } from '../actions/TodoActions';
+import { fetchList } from '../actions/TodoActions';
 import { connect } from 'react-redux';
 import App from '../App';
 
@@ -10,8 +10,7 @@ const mapStateToProps = state => ({
 
 //wraps Actions inside store dispatch method and map it to component props
 const mapDispatchToProps = dispatch => ({
-    fetchTodoList: () => dispatch(fetchList()),
-    addToList: () => dispatch(addToList())
+    fetchTodoList: () => dispatch(fetchList())
 });
 
 //returns just a wrapper of component with subscription to store
