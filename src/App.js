@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Todo from './components/todo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+//simple component - Parent to Todo
+class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+      <Todo
+        todoList={this.props.todoList}
+      />
+      <a href="javascript:void(0)" onClick={() => this.props.addToList()}>Add</a>
     </div>
-  );
+    );
+  };
+
+  //life cycle method- call immediately before render method (mounting)
+  componentWillMount() {
+    //this will dispatch an action to load todolist from server.
+    this.props.fetchTodoList();
+  }
 }
 
 export default App;
