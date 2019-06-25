@@ -1,14 +1,20 @@
 import React from 'react';
 
-//dump component - no buisness logic
+//dump component - no buisness logic only rendering logic
 //used to render data
 class Todo extends React.Component {
     render() {
+
+        const todos = this.props.todoList.map((val) => 
+            <li key={val.id}>{val.title}</li>
+        );
+
         return(
-            <React.Fragment>
-                { this.props.todoList && this.props.todoList.length > 0 && <h1>{this.props.todoList[0].title}</h1>}
-            </React.Fragment>
-        )
+            <div>
+                <h1>My Todo list</h1>
+                <ul>{todos}</ul>
+            </div>
+        );
     }
 }
 
