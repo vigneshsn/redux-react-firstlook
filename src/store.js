@@ -1,24 +1,23 @@
-import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
-import { todoReducer } from './reducers/TodoReducer';
-import getTodoList from './middleware/Todo'
+import { createStore, compose, applyMiddleware } from "redux";
+import rootReducer from "./reducers";
+import middleware from "./middleware";
 
-//this code is for enabling redux devtools 
+//this code is for enabling redux devtools
 const enhancers = [];
-const middleware = [getTodoList];
+//const middleware = [getTodoList];
 if (process.env.NODE_ENV === "development") {
-    const devToolsExtension = window.devToolsExtension;
+  const devToolsExtension = window.devToolsExtension;
 
-    if (typeof devToolsExtension === "function") {
-        enhancers.push(devToolsExtension());
-    }
+  if (typeof devToolsExtension === "function") {
+    enhancers.push(devToolsExtension());
+  }
 }
 
 const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers
+  applyMiddleware(...middleware),
+  ...enhancers
 );
 
-const reducers = combineReducers({todoReducer: todoReducer});
-const store = createStore(reducers, {}, composedEnhancers);
+const store = createStore(rootReducer, {}, composedEnhancers);
 
 export default store;

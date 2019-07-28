@@ -1,21 +1,23 @@
-import {Types} from '../actions/TodoActions';
+import { Types } from "../actions/TodoActions";
 
 const initialState = {
-    data: []
+  data: []
 };
 
 //pure functions - should not mutate the state.
-export const todoReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case Types.SET_LIST: {
-           return {
-               ...state,
-               data: action.payload
-           }
-        }
-        default: {
-            console.log('default block');
-            return state;
-        }
+const todoReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case Types.SET_LIST: {
+      return {
+        ...state,
+        data: action.payload
+      };
     }
+    default: {
+      console.log("default block");
+      return state;
+    }
+  }
 };
+
+export default todoReducer;
